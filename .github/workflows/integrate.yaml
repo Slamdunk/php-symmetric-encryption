@@ -52,7 +52,7 @@ jobs:
         run: "composer-require-checker"
 
       - name: "Check composer.json unused dependencies"
-        run: "composer-unused"
+        run: "composer-unused --excludePackage=php"
 
   tests:
     name: "Tests"
