@@ -1,0 +1,34 @@
+{
+    "name": "slam/php-symmetric-encryption",
+    "type": "library",
+    "description": "PHP Symmetric Encryption",
+    "homepage": "https://github.com/slamdunk/php-symmetric-encryption",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Filippo Tessarotto",
+            "email": "zoeslam@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "ext-sodium": "*"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^v3.2.1",
+        "malukenho/mcbumpface": "^1.1.5",
+        "phpunit/phpunit": "^9.5.10",
+        "vimeo/psalm": "^4.11.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "SlamSymmetricEncryption\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "SlamSymmetricEncryptionTest\\": "test/"
+        }
+    }
+}
