@@ -15,6 +15,13 @@ use SlamSymmetricEncryption\V1Encryptor;
  */
 final class V1EncryptorTest extends TestCase
 {
+    public function testFormatConsistency(): void
+    {
+        $encryptor = new V1Encryptor('Hog2u9jtOzyt+mPyAJwp8v3dI6Uvp1T4FUKrAjizVGo=');
+
+        static::assertSame('foo', $encryptor->decrypt('dznmjbqHnI_26crKpRYvp125K9N6ctqU.0kVCmoSRbG7HAKCIrnAz0RBELQ'));
+    }
+
     public function testWrongKeyBits(): void
     {
         $encryptor = new V1Encryptor(base64_encode('foo'));
