@@ -6,6 +6,8 @@
 [![Code Coverage](https://codecov.io/gh/Slamdunk/php-symmetric-encryption/coverage.svg?branch=master)](https://codecov.io/gh/Slamdunk/php-symmetric-encryption?branch=master)
 [![Type Coverage](https://shepherd.dev/github/Slamdunk/php-symmetric-encryption/coverage.svg)](https://shepherd.dev/github/Slamdunk/php-symmetric-encryption)
 
+V1: encrypt strings with [`sodium_crypto_aead_xchacha20poly1305_ietf_encrypt`](https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.php) function.
+
 ## Installation
 
 To install with composer run the following command:
@@ -14,5 +16,21 @@ To install with composer run the following command:
 $ composer require slam/php-symmetric-encryption
 ```
 
-## Versions
+## Usage
 
+```php
+use SlamSymmetricEncryption\V1Encryptor;
+
+// Generate a key and save it somewhere
+$key = V1Encryptor::generateKey();
+var_dump($key); // string(44) "Hog2u9jtOzyt+mPyAJwp8v3dI6Uvp1T4FUKrAjizVGo="
+
+// Use the key
+$encryptor = new V1Encryptor($key);
+
+$ciphertext = $encryptor->encrypt('foo');
+var_dump($ciphertext); // string(61) "gREcrF+l9pP4rUZFU5OoM9mX3b/6ScfX.S+97z1TtoJX4R90qSPHgU74nKQ=="
+
+$plaintext = $encryptor->decrypt($ciphertext);
+var_dump($plaintext); // string(3) "foo"
+```
