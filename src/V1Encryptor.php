@@ -38,9 +38,9 @@ final class V1Encryptor implements EncryptorInterface
             throw new EncryptorException('Encryption failed', 0, $sodiumException);
         }
 
-        return sodium_bin2base64($nonce, SODIUM_BASE64_VARIANT_ORIGINAL)
+        return sodium_bin2base64($nonce, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING)
             .'.'
-            .sodium_bin2base64($ciphertext, SODIUM_BASE64_VARIANT_ORIGINAL)
+            .sodium_bin2base64($ciphertext, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING)
         ;
     }
 
@@ -55,8 +55,8 @@ final class V1Encryptor implements EncryptorInterface
         $nonce = substr($encryptedMessage, 0, $dotPosition);
         $ciphertext = substr($encryptedMessage, 1 + $dotPosition);
 
-        $nonce = sodium_base642bin($nonce, SODIUM_BASE64_VARIANT_ORIGINAL, '');
-        $ciphertext = sodium_base642bin($ciphertext, SODIUM_BASE64_VARIANT_ORIGINAL, '');
+        $nonce = sodium_base642bin($nonce, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING, '');
+        $ciphertext = sodium_base642bin($ciphertext, SODIUM_BASE64_VARIANT_URLSAFE_NO_PADDING, '');
 
         $return = sodium_crypto_aead_xchacha20poly1305_ietf_decrypt(
             $ciphertext,
