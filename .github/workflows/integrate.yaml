@@ -91,7 +91,7 @@ jobs:
 
       - name: "Run tests"
         timeout-minutes: 3
-        run: "vendor/bin/phpunit --coverage-clover=coverage.xml"
+        run: "vendor/bin/phpunit --coverage-clover=coverage.xml --coverage-xml=coverage/coverage-xml --log-junit=coverage/junit.xml"
 
       - name: "Send code coverage report to Codecov.io"
         uses: codecov/codecov-action@v1
@@ -99,6 +99,15 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage.xml
           fail_ci_if_error: true
+
+      - name: "Infection"
+        timeout-minutes: 10
+        run: "vendor/bin/infection --ansi --threads=$(nproc) --coverage=coverage --skip-initial-tests"
+        env:
+          INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
+
+      - name: "Output infections"
+        run: "cat infections.log"
 
   coding-standards:
     name: "Coding Standards"

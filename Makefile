@@ -1,4 +1,4 @@
-all: csfix static-analysis test
+all: csfix static-analysis code-coverage
 	@echo "Done."
 
 vendor: composer.json
@@ -20,3 +20,10 @@ test: vendor
 		--coverage-html=coverage/html \
 		--log-junit=coverage/junit.xml \
 		${arg}
+
+.PHONY: code-coverage
+code-coverage: test
+	php -d zend.assertions=1 vendor/bin/infection \
+		--threads=$(shell nproc) \
+		--coverage=coverage \
+		--skip-initial-tests

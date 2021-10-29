@@ -27,6 +27,7 @@ final class V1EncryptorTest extends TestCase
         $encryptor = new V1Encryptor(base64_encode('foo'));
 
         $this->expectException(EncryptorException::class);
+        $this->expectExceptionCode(0);
 
         $encryptor->encrypt('bar');
     }
@@ -51,6 +52,7 @@ final class V1EncryptorTest extends TestCase
         static::assertSame($plaintext, $encryptor1->decrypt($encryptedWith1));
 
         $this->expectException(EncryptorException::class);
+        $this->expectExceptionCode(0);
 
         $encryptor2->decrypt($encryptedWith1);
     }
