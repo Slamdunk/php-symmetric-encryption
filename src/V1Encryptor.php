@@ -25,7 +25,12 @@ final class V1Encryptor implements EncryptorInterface
 
     public function encrypt(string $plaintextMessage): string
     {
-        $nonce = random_bytes(SODIUM_CRYPTO_AEAD_XCHACHA20POLY1305_IETF_NPUBBYTES);
+        $randnonce = random_bytes(SODIUM_CRYPTO_AEAD_XCHACHA20POLY1305_IETF_NPUBBYTES);
+        $nonce = sodium_crypto_generichash(
+            $plaintextMessage,
+            $randnonce,
+            SODIUM_CRYPTO_AEAD_XCHACHA20POLY1305_IETF_NPUBBYTES
+        );
 
         try {
             $ciphertext = sodium_crypto_aead_xchacha20poly1305_ietf_encrypt(
