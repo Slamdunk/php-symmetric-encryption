@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace SlamSymmetricEncryptionTest;
+namespace SlamSymmetricEncryption\Test;
 
 use PHPUnit\Framework\TestCase;
 use SlamSymmetricEncryption\EncryptorException;
