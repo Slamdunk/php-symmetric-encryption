@@ -30,7 +30,7 @@ var_dump($key); // string(44) "Hog2u9jtOzyt+mPyAJwp8v3dI6Uvp1T4FUKrAjizVGo="
 $encryptor = new V1Encryptor($key);
 
 $ciphertext = $encryptor->encrypt('foo');
-var_dump($ciphertext); // string(59) "dznmjbqHnI_26crKpRYvp125K9N6ctqU.0kVCmoSRbG7HAKCIrnAz0RBELQ"
+var_dump($ciphertext); // string(59) "dznmjbqHnI_26crKpRYvp125K9N6ctqU0kVCmoSRbG7HAKCIrnAz0RBELQ"
 
 $plaintext = $encryptor->decrypt($ciphertext);
 var_dump($plaintext); // string(3) "foo"
