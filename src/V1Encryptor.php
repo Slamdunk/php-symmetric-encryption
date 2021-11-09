@@ -18,7 +18,7 @@ final class V1Encryptor implements EncryptorInterface
     public static function generateKey(): string
     {
         return sodium_bin2base64(
-            random_bytes(SODIUM_CRYPTO_AEAD_XCHACHA20POLY1305_IETF_KEYBYTES),
+            sodium_crypto_aead_xchacha20poly1305_ietf_keygen(),
             SODIUM_BASE64_VARIANT_ORIGINAL
         );
     }
