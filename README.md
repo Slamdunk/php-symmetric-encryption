@@ -4,7 +4,6 @@
 [![Downloads](https://img.shields.io/packagist/dt/slam/php-symmetric-encryption.svg)](https://packagist.org/packages/slam/php-symmetric-encryption)
 [![Integrate](https://github.com/Slamdunk/php-symmetric-encryption/workflows/CI/badge.svg?branch=master)](https://github.com/Slamdunk/php-symmetric-encryption/actions)
 [![Code Coverage](https://codecov.io/gh/Slamdunk/php-symmetric-encryption/coverage.svg?branch=master)](https://codecov.io/gh/Slamdunk/php-symmetric-encryption?branch=master)
-[![Type Coverage](https://shepherd.dev/github/Slamdunk/php-symmetric-encryption/coverage.svg)](https://shepherd.dev/github/Slamdunk/php-symmetric-encryption)
 [![Infection MSI](https://badge.stryker-mutator.io/github.com/Slamdunk/php-symmetric-encryption/master)](https://dashboard.stryker-mutator.io/reports/github.com/Slamdunk/php-symmetric-encryption/master)
 
 V1: encrypt strings with [`sodium_crypto_aead_xchacha20poly1305_ietf_encrypt`](https://www.php.net/manual/en/function.sodium-crypto-aead-xchacha20poly1305-ietf-encrypt.php) function.
