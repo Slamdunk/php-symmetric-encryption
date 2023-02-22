@@ -4,22 +4,27 @@ declare(strict_types=1);
 
 namespace SlamSymmetricEncryption\Test;
 
+use PHPUnit\Framework\Attributes\CoversClass;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 use SlamSymmetricEncryption\EncryptorInterface;
 use SlamSymmetricEncryption\V1Encryptor;
 
 /**
- * @covers \SlamSymmetricEncryption\V1Encryptor
- *
  * @internal
+ */
+#[CoversClass(V1Encryptor::class)]
+/**
+ * @internal
+ *
+ * @coversNothing
  */
 final class EncryptorsTest extends TestCase
 {
     /**
      * @param callable():EncryptorInterface $encryptorFactory
-     *
-     * @dataProvider provideEncryptors
      */
+    #[DataProvider('provideEncryptors')]
     public function testLocalEncryption(callable $encryptorFactory): void
     {
         $encryptor = $encryptorFactory();
@@ -38,7 +43,7 @@ final class EncryptorsTest extends TestCase
     /**
      * @return array<string, list<callable(): EncryptorInterface>>
      */
-    public function provideEncryptors(): array
+    public static function provideEncryptors(): array
     {
         return [
             V1Encryptor::class => [static function (): EncryptorInterface {
