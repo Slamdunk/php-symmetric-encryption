@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace SlamSymmetricEncryption;
 
-use SodiumException;
-
 final class V1Encryptor implements EncryptorInterface
 {
     private string $key;
@@ -39,7 +37,7 @@ final class V1Encryptor implements EncryptorInterface
                 $nonce,
                 $this->key
             );
-        } catch (SodiumException $sodiumException) {
+        } catch (\SodiumException $sodiumException) {
             throw new EncryptorException('Encryption failed', 0, $sodiumException);
         }
 

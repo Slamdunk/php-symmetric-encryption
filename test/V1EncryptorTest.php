@@ -4,14 +4,19 @@ declare(strict_types=1);
 
 namespace SlamSymmetricEncryption\Test;
 
+use PHPUnit\Framework\Attributes\CoversClass;
 use PHPUnit\Framework\TestCase;
 use SlamSymmetricEncryption\EncryptorException;
 use SlamSymmetricEncryption\V1Encryptor;
 
 /**
- * @covers \SlamSymmetricEncryption\V1Encryptor
- *
  * @internal
+ */
+#[CoversClass(V1Encryptor::class)]
+/**
+ * @internal
+ *
+ * @coversNothing
  */
 final class V1EncryptorTest extends TestCase
 {
