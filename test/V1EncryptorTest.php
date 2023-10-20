@@ -24,7 +24,7 @@ final class V1EncryptorTest extends TestCase
     {
         $encryptor = new V1Encryptor('Hog2u9jtOzyt+mPyAJwp8v3dI6Uvp1T4FUKrAjizVGo=');
 
-        static::assertSame('foo', $encryptor->decrypt('dznmjbqHnI_26crKpRYvp125K9N6ctqU0kVCmoSRbG7HAKCIrnAz0RBELQ'));
+        self::assertSame('foo', $encryptor->decrypt('dznmjbqHnI_26crKpRYvp125K9N6ctqU0kVCmoSRbG7HAKCIrnAz0RBELQ'));
     }
 
     public function testWrongKeyBits(): void
@@ -54,7 +54,7 @@ final class V1EncryptorTest extends TestCase
         $plaintext = uniqid();
         $encryptedWith1 = $encryptor1->encrypt($plaintext);
 
-        static::assertSame($plaintext, $encryptor1->decrypt($encryptedWith1));
+        self::assertSame($plaintext, $encryptor1->decrypt($encryptedWith1));
 
         $this->expectException(EncryptorException::class);
         $this->expectExceptionCode(0);
