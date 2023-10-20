@@ -33,11 +33,11 @@ final class EncryptorsTest extends TestCase
 
         $encrypted = $encryptor->encrypt($message);
 
-        static::assertNotSame($encrypted, $message);
+        self::assertNotSame($encrypted, $message);
 
         $decrypted = $encryptor->decrypt($encrypted);
 
-        static::assertSame($message, $decrypted);
+        self::assertSame($message, $decrypted);
     }
 
     /**

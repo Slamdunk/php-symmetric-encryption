@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - "master"
+      - "renovate/*"
 
 env:
   INI_VALUES: zend.assertions=1,error_reporting=-1
@@ -31,7 +32,7 @@ jobs:
       - run: "composer validate --strict"
       - run: "composer-normalize --dry-run"
       - run: "composer-require-checker check"
-      - run: "composer-unused --excludePackage=php"
+      - run: "composer-unused"
 
   tests:
     name: "Tests"
