@@ -32,7 +32,7 @@ jobs:
       - run: "composer validate --strict"
       - run: "composer-normalize --dry-run"
       - run: "composer-require-checker check"
-      - run: "composer-unused --excludePackage=php"
+      - run: "composer-unused"
 
   tests:
     name: "Tests"
