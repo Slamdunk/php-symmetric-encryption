@@ -17,7 +17,7 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.58.1",
-        "infection/infection": "^0.29.2",
+        "infection/infection": "^0.29.3",
         "phpstan/phpstan": "^1.11.3",
         "phpstan/phpstan-phpunit": "^1.4.0",
         "phpunit/phpunit": "^10.5.20"
