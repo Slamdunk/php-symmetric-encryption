@@ -10,9 +10,6 @@
         cacheDirectory=".phpunit.cache"
 >
   <coverage>
-    <include>
-      <directory suffix=".php">src</directory>
-    </include>
     <report>
       <text outputFile="php://stdout" showOnlySummary="true"/>
     </report>
@@ -22,4 +19,9 @@
       <directory>./test/</directory>
     </testsuite>
   </testsuites>
+  <source>
+    <include>
+      <directory>src</directory>
+    </include>
+  </source>
 </phpunit>
