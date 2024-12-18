@@ -17,10 +17,10 @@
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.65.0",
-        "infection/infection": "^0.29.8",
+        "infection/infection": "^0.29.10",
         "phpstan/phpstan": "^2",
         "phpstan/phpstan-phpunit": "^2",
-        "phpunit/phpunit": "^11.5.0"
+        "phpunit/phpunit": "^11.5.1"
     },
     "autoload": {
         "psr-4": {
