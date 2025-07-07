@@ -16,10 +16,10 @@
         "ext-sodium": "*"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.77.0",
+        "friendsofphp/php-cs-fixer": "^3.80.0",
         "infection/infection": "^0.30.1",
-        "phpstan/phpstan": "^2",
-        "phpstan/phpstan-phpunit": "^2",
+        "phpstan/phpstan": "^2.1.17",
+        "phpstan/phpstan-phpunit": "^2.0.6",
         "phpunit/phpunit": "^12.2.6"
     },
     "autoload": {

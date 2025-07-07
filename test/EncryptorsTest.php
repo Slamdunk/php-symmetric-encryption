@@ -24,7 +24,7 @@ final class EncryptorsTest extends TestCase
     /**
      * @param callable():EncryptorInterface $encryptorFactory
      */
-    #[DataProvider('provideEncryptors')]
+    #[DataProvider('provideLocalEncryptionCases')]
     public function testLocalEncryption(callable $encryptorFactory): void
     {
         $encryptor = $encryptorFactory();
@@ -43,7 +43,7 @@ final class EncryptorsTest extends TestCase
     /**
      * @return array<string, list<callable(): EncryptorInterface>>
      */
-    public static function provideEncryptors(): array
+    public static function provideLocalEncryptionCases(): iterable
     {
         return [
             V1Encryptor::class => [static function (): EncryptorInterface {
