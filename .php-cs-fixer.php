@@ -5,7 +5,7 @@ $config->setRiskyAllowed(true);
 $config->setRules([
     '@PhpCsFixer' => true,
     '@PhpCsFixer:risky' => true,
-    '@PHPUnit100Migration:risky' => true,
+    '@PHPUnit10x0Migration:risky' => true,
 ]);
 $config->getFinder()
     ->in(__DIR__ . '/src')
