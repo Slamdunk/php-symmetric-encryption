@@ -19,8 +19,8 @@
         "friendsofphp/php-cs-fixer": "^3.93.1",
         "infection/infection": "^0.32.4",
         "phpstan/phpstan": "^2.1.38",
-        "phpstan/phpstan-phpunit": "^2.0.13",
-        "phpunit/phpunit": "^12.5.10"
+        "phpstan/phpstan-phpunit": "^2.0.14",
+        "phpunit/phpunit": "^12.5.11"
     },
     "autoload": {
         "psr-4": {
