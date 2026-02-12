@@ -20,7 +20,7 @@
         "infection/infection": "^0.32.4",
         "phpstan/phpstan": "^2.1.39",
         "phpstan/phpstan-phpunit": "^2.0.15",
-        "phpunit/phpunit": "^12.5.11"
+        "phpunit/phpunit": "^13.0.2"
     },
     "autoload": {
         "psr-4": {
