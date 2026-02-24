@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace SlamSymmetricEncryption;
 
-final class V1Encryptor implements EncryptorInterface
+final readonly class V1Encryptor implements EncryptorInterface
 {
     /**
      * @var non-empty-string
@@ -15,8 +15,13 @@ final class V1Encryptor implements EncryptorInterface
      * @param non-empty-string $base64key
      */
     public function __construct(
-        private readonly string $base64key
-    ) {}
+        #[\SensitiveParameter]
+        string $base64key
+    ) {
+        $binaryKey = sodium_base642bin($base64key, SODIUM_BASE64_VARIANT_ORIGINAL, '');
+        \assert('' !== $binaryKey);
+        $this->binaryKey = $binaryKey;
+    }
 
     /**
      * @return non-empty-string
@@ -25,13 +30,10 @@ final class V1Encryptor implements EncryptorInterface
      */
     public static function generateKey(): string
     {
-        $key = sodium_bin2base64(
+        return sodium_bin2base64(
             sodium_crypto_aead_xchacha20poly1305_ietf_keygen(),
             SODIUM_BASE64_VARIANT_ORIGINAL
         );
-        \assert('' !== $key);
-
-        return $key;
     }
 
     /**
@@ -51,7 +53,7 @@ final class V1Encryptor implements EncryptorInterface
                 $plaintextMessage,
                 '',
                 $nonce,
-                $this->getKey()
+                $this->binaryKey,
             );
         } catch (\SodiumException $sodiumException) {
             throw new EncryptorException('Encryption failed', 0, $sodiumException);
@@ -74,7 +76,7 @@ final class V1Encryptor implements EncryptorInterface
             $ciphertext,
             '',
             $nonce,
-            $this->getKey()
+            $this->binaryKey,
         );
 
         if (false === $return) {
@@ -83,21 +85,5 @@ final class V1Encryptor implements EncryptorInterface
         \assert('' !== $return);
 
         return $return;
-    }
-
-    /**
-     * @return non-empty-string
-     *
-     * @throws \SodiumException
-     */
-    private function getKey(): string
-    {
-        if (!isset($this->binaryKey)) {
-            $binaryKey = sodium_base642bin($this->base64key, SODIUM_BASE64_VARIANT_ORIGINAL, '');
-            \assert('' !== $binaryKey);
-            $this->binaryKey = $binaryKey;
-        }
-
-        return $this->binaryKey;
     }
 }
