@@ -14,6 +14,10 @@
       <text outputFile="php://stdout" showOnlySummary="true"/>
     </report>
   </coverage>
+  <php>
+    <!-- Exceptions keep the stream resources they were thrown with: ensure they get closed anyway -->
+    <ini name="zend.exception_ignore_args" value="0"/>
+  </php>
   <testsuites>
     <testsuite name="Slam php-symmetric-encryption">
       <directory>./test/</directory>
