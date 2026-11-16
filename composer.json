@@ -16,7 +16,7 @@
         "ext-sodium": "*"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.95.30",
+        "friendsofphp/php-cs-fixer": "^3.95.31",
         "infection/infection": "^0.35.11",
         "phpstan/phpstan": "^2.3.6",
         "phpstan/phpstan-phpunit": "^2.1.2",
